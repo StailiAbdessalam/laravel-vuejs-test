@@ -14,7 +14,7 @@ To start the simple blog test you have to fork the repo, and work on your own Gi
     - 1 user admin(Ader solution): have all permissions 
     - Other users : have read
 - Create migrations for categories with fake data (id, name, image, user)
-- Create migrations articles ( id ,name, has one category, user, image, description)
+- Create migrations articles ( id ,name,category, user, image, description)
 - Article unit test
 
 #### Frontend
