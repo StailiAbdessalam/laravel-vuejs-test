@@ -10,7 +10,9 @@ To start the simple blog test you have to fork the repo, and work your own GitHu
 - UI/UX (as you prefer)
 
 #### Backend
-- Create fake different users with role and permissions (you use Spatie Permissions)
+- Create fake different users with role and permissions[read, edit, create] (you use Spatie permissions)
+    - 1 user admin(Ader solution): have all permissions 
+    - Other users : have read 
 - Create migrations for categories with fake data (id, name, image)
 - Create migrations articles ( id ,name, has one category, image, description)
 - Article unit test
@@ -22,6 +24,7 @@ To start the simple blog test you have to fork the repo, and work your own GitHu
     - Search by name and description
     - Category
     - User
+- Apply the user permissions 
 
 
 
