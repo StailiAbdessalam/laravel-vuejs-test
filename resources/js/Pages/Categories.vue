@@ -2,7 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Modal from "@/Components/Modal.vue";
 import {ref, watch} from "vue";
-import {usePage} from "@inertiajs/vue3";
+import {Link, usePage} from "@inertiajs/vue3";
 
 const { props, inertia } = usePage();
 
@@ -158,14 +158,14 @@ const editcategorie=async ()=>{
         </Modal>
 
 
-        <Modal :closeable="!showAddCategorie" :show="showAddCategorie">
+        <Modal :closeable="!showAddCategorie" :show="showAddCategorie" >
             <div class="flex justify-end p-5 hover:cursor-pointer">
                 <svg @click="showAddCategorie=!showAddCategorie" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
                 </svg>
             </div>
-            <div class="flex justify-center items-center py-4 mt-3">
+            <div class="flex p-4 sm:p-0 justify-center items-center py-4 mt-3 backdrop-blur">
                 <form class="w-full max-w-lg">
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full  px-3 mb-6 md:mb-0">
@@ -174,7 +174,7 @@ const editcategorie=async ()=>{
                                 Name Category
                             </label>
                             <input
-                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                class="appearance-none block w-full  text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                                 id="grid-first-name" v-model="newcategorie['name']" type="text" placeholder="Development">
                             <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
@@ -187,10 +187,9 @@ const editcategorie=async ()=>{
                             <div class="relative">
                                 <select
                                     v-model="newcategorie['status']"
-                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-state">
-                                    <option disabled>State</option>
-                                    <option>active</option>
+                                    <option selected>active</option>
                                     <option>inactive</option>
                                 </select>
                             </div>
@@ -309,7 +308,7 @@ const editcategorie=async ()=>{
                     <div v-if="pagination?.pages?.length > 1" class="flex">
                         <p v-for="page in pagination?.pages" :key="page.label"
                            :class="{ 'text-indigo-700 border-t border-transparent border-indigo-400': page.active, 'cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2': true }">
-                            <InertiaLink :href="page.url" v-html="page.label" />
+                            <Link :href="page.url" v-html="page.label" ></Link>
                         </p>
 
                     </div>

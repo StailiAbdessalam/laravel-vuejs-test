@@ -39,6 +39,7 @@ class ArticleController extends Controller
             ->whereNot('status','deleted')
             ->orderBy('id','desc')
             ->paginate(4);
+
         $categories = Categories::whereNot('status','deleted')->get();
 
         return Inertia::render('Articles', [

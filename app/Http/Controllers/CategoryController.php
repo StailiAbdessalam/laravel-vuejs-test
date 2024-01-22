@@ -36,7 +36,7 @@ class CategoryController extends Controller
             ->orderBy('id','DESC')
             ->whereNot('status','deleted')
             ->withCount('articles')
-            ->paginate(4);
+            ->paginate(10);
 
 
         return Inertia::render('Categories', [

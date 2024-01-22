@@ -5,7 +5,7 @@ import Modal from "@/Components/Modal.vue";
 import {computed, ref} from "vue";
 import {usePage} from "@inertiajs/vue3";
 import { DateTime } from 'luxon';
-
+import { Head, Link } from '@inertiajs/vue3';
 const { props, inertia } = usePage();
 
 const articles = ref(props.articles);
@@ -162,7 +162,7 @@ const deleteArticle = async (recordId)=>{
             </div>
         </template>
 
-        <div class="flex flex-col gap-0">
+        <div class="flex flex-col gap-0 ">
             <div class="pt-12" v-for="article in filteredArticles" :key="article.id">
                 <div class="md:max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -257,13 +257,13 @@ const deleteArticle = async (recordId)=>{
                 </div>
 
             </div>
-            <div  v-if="pagination?.pages.length>2"
+            <div  v-if="filteredArticles.length>0 && pagination?.pages.length>2"
                  class="w-[100%] ml-12 py-6 flex items-center justify-start pb-2 lg:px-0 sm:px-6 px-4 sm:pl-4">
                 <div class="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200">
                     <div v-if="pagination?.pages?.length > 1" class="flex">
                         <p v-for="page in pagination?.pages" :key="page.label"
                            :class="{ 'text-indigo-700 border-t border-transparent border-indigo-400': page.active, 'cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2': true }">
-                            <InertiaLink :href="page.url" v-html="page.label" />
+                            <Link :href="page.url" v-html="page.label" ></Link>
                         </p>
 
                     </div>
@@ -285,22 +285,10 @@ const deleteArticle = async (recordId)=>{
                                 </svg>
                             </div>
                         </div>
-                        <h2 class="text-center font-bold text-2xl mt-1 text-gray-600 ">Delete media?</h2>
-                        <p class=" text-gray-500 font-medium text-center my-6 mx-6 ">
-                            Are you sure you want to delete "rainiy_day.jpg"? You can't undo this action.
-                        </p>
-                        <div class="px-4 flex flex-row py-4 min-w-min border-l-4 border-red-400  bg-red-100  rounded mx-auto">
-                                      <span class="w-6 h-6 mr-4 mt-1 text-red-500 ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd"
-                                                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                      </span>
+                        <div class="px-4 flex flex-row py-4 min-w-min rounded mx-auto justify-center text-center">
                             <div>
-                                <h2 class="text-lg font-bold text-red-700">Warning</h2>
-                                <p class="text-sm my-2 text-red-500 font-medium">By deleting this media 8 connected
-                                    hotspots will also be deleting.</p>
+                                <h2 class="text-lg font-bold text-red-700">Delete media?</h2>
+                                <p class="text-sm my-2 text-red-500 font-medium">Are you sure you want to delete? You can't undo this action.</p>
                             </div>
                         </div>
                         <div class="flex-row md:flex items-center md:justify-between py-4 text-center mx-auto">
