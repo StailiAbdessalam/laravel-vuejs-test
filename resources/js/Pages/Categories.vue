@@ -28,23 +28,26 @@ const deleteRecord = async (recordId) => {
     }
 };
 const addCategorie = async ()=>{
-
     if(newcategorie.value.id){
         const response = await editcategorie();
         return response;
     }
-    try {
-        const response = await axios.post('/create-category',{
-            'name': newcategorie.value['name'],
-            'status': newcategorie.value['status']
-        });
+    if(newcategorie.value['name'] && newcategorie.value['status']){
+        try {
+            const response = await axios.post('/create-category',{
+                'name': newcategorie.value['name'],
+                'status': newcategorie.value['status']
+            });
 
-        categories.value = response.data.categories;
-        pagination.value=response.data.pagination;
+            categories.value = response.data.categories;
+            pagination.value=response.data.pagination;
 
 
-    } catch (error) {
-        console.error('Error deleting record:', error);
+        } catch (error) {
+            console.error('Error deleting record:', error);
+        }
+    }else{
+        console.log('please add fillable required')
     }
 }
 

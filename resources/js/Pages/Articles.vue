@@ -28,7 +28,7 @@ const newArticle = ref({
 
 
 const addArticle = async () => {
-    if (newArticle.value.name && newArticle.value.status && newArticle.value.image) {
+    if (newArticle.value.name && newArticle.value.status && newArticle.value.image && newArticle.value.description && newArticle.value.category_id) {
 
         try {
             const response = await axios.post('/create-article', newArticle.value, {
