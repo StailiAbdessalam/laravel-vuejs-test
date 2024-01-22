@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,7 +32,29 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+
+    Route::middleware([AdminMiddleware::class])->group(function () {
+
+        Route::get('/articles_admin', function () {
+            return Inertia::render('Articles_admin');
+        })->name('articles_admin');
+
+        Route::get('/dashboard', function () {
+            return Inertia::render('Dashboard');
+        })->name('dashboard');
+
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+        Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+        Route::post('/create-category', [CategoryController::class, 'store']);
+
+        Route::delete('/articles/{id}', [ArticleController::class, 'destroy']);
+        Route::post('/create-article', [ArticleController::class, 'store']);
+        Route::post('/update-article', [ArticleController::class, 'update']);
+
+
+
+
+
+    });
 });

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Team;
 use App\Models\User;
+use App\Utils\Enums\Roles;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -20,6 +21,7 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -31,6 +33,17 @@ class UserFactory extends Factory
             'profile_photo_path' => null,
             'current_team_id' => null,
         ];
+    }
+
+    public function admin(): static
+    {
+
+        return $this->state([
+            'role' => Roles::ADMIN,
+            'email'=> 'the.staili.abdessalam@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'name'=>'abdessalam staili'
+        ]);
     }
 
     /**

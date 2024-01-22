@@ -4,14 +4,8 @@ import { Link } from '@inertiajs/vue3';
 
 <template>
     <Link :href="'/'">
-        <svg
-            class="w-16 h-16"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z" fill="#6875F5" />
-            <path d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z" fill="#6875F5" />
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+            <polygon fill="#44a5ff" points="3,6 24,42 45,6"></polygon><polygon fill="#2496ff" points="24,6 24,42 45,6"></polygon><polygon fill="#5fb3ff" points="24,9 16,22 32,22"></polygon><polygon fill="#1d7ed5" points="15.999,22 23.999,42 31.999,22"></polygon><polygon fill="#187bc6" points="37,8 32,22 39.881,14.776 42.467,10.343"></polygon><polygon fill="#0e4f79" points="31.999,22 23.999,42 45,6"></polygon><polygon fill="#4d99f4" points="5.533,10.343 8.119,14.777 16,22 11,8"></polygon><polygon fill="#2160af" points="24,42 16,22 3,6"></polygon><polygon fill="#2872d3" points="3,6 24,9 45,6"></polygon><polygon fill="#d87a26" points="24,6 31.132,7.981 45,6"></polygon><polygon fill="#175495" points="24,6 31.132,7.981 45,6"></polygon><polygon fill="#2165ba" points="3,6 16.868,7.981 24,6"></polygon><polygon fill="#187bc6" points="31.132,7.981 41.133,10.759 45,6"></polygon><polygon fill="#4d99f4" points="3,6 6.867,10.759 16.868,7.981"></polygon>
         </svg>
     </Link>
 </template>
