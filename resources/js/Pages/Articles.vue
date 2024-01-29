@@ -225,21 +225,22 @@ const deleteArticle = async (recordId)=>{
                                         <p class="text-2xl font-bold text-black tracking-tight">
                                             {{article.name}}
                                         </p>
-                                        <p  class="text-l text-black">
-                                            {{article.description}}
-                                        </p>
-                                    </div>
-                                    <div class="grid grid-cols-1 gap-6 border-t border-b border-gray-200 my-12 py-8">
-                                        <div>
-                                            <p class="flex justify-start items-center  font-bold text-black gap-1">
+                                        <p class="flex justify-start items-center  font-bold text-black gap-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
                                                 </svg>
                                                 category : {{article.category.name}}
                                             </p>
+                                       
+                                    </div>
+                                    <div class="grid grid-cols-1 gap-6 border-t border-b border-gray-200 my-12 py-8">
+                                        <div>
+                                        
                                             <p class="text-sm text-black">
-                                                people in the Apple supply chain covered by our health and safety standards in 2020
+                                                <p  class="text-l text-black">
+                                                    {{article.description}}
+                                                </p>
                                             </p>
                                         </div>
 

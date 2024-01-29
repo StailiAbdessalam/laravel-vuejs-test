@@ -16,7 +16,7 @@ class CategoryController extends Controller
             ->whereNot('status','deleted')
             ->orderBy('id','DESC')
             ->withCount('articles')
-            ->paginate(4);
+            ->paginate(10);
 
         return response()->json([
             'categories' => $categories->items(),
